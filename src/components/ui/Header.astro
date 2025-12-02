@@ -1,12 +1,19 @@
 ---
 import { Image } from "astro:assets";
-import bg_home from "../../assets/bg_home.jpg";
+
+interface Props {
+  bgImage: String;
+}
+
+const { bgImage } = Astro.props;
+console.log(bgImage);
 ---
 
-<header>
-  <h1 class="text-center font-black text-4xl p-2">Header</h1>
-  <Image src={bg_home} alt="bg_home" width="100" />
-  <h3>
-    Bienvenido: <span class="font-black">Usuario</span>
-  </h3>
+<header class="min-h-72 relative">
+  <div
+    class="inset-0 absolute bg-center bg-cover"
+    style={{ backgroundImage: `url(${bgImage})` }}
+  >
+  </div>
+  <div class="inset-0 absolute bg-black/60"></div>
 </header>
