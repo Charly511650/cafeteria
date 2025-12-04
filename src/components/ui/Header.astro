@@ -1,19 +1,27 @@
 ---
-import { Image } from "astro:assets";
+import Logo from "@/assets/logo.svg";
+import MainNav from "@/components/ui/MainNav.astro";
 
 interface Props {
-  bgImage: String;
+  bgImage?: String;
 }
 
 const { bgImage } = Astro.props;
 console.log(bgImage);
 ---
 
-<header class="min-h-72 relative">
+<header class="min-h-72 relative pb-72">
   <div
     class="inset-0 absolute bg-center bg-cover"
     style={{ backgroundImage: `url(${bgImage})` }}
   >
   </div>
   <div class="inset-0 absolute bg-black/60"></div>
+  <div
+    class="relative max-w-7xl mx-auto py-10 flex flex-col items-center lg:flex-row justify-between"
+  >
+    <a href="/"><Logo class="w-72" /></a>
+
+    <MainNav />
+  </div>
 </header>

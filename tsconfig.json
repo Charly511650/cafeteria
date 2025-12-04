@@ -1,5 +1,12 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "exclude": ["dist"],
+  // generar rutas con @/ desde ./src/**
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*":["./src/*"]
+    }
+  }
 }
