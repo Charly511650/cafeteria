@@ -5,9 +5,10 @@ import Footer from "@/components/ui/Footer.astro";
 
 interface Props {
   title: String;
+  subTitle?: String;
   bgImage?: String;
 }
-const { title, bgImage } = Astro.props;
+const { title, subTitle, bgImage } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,8 +26,10 @@ const { title, bgImage } = Astro.props;
     <title>Cafeteria desde 1939 : {title}</title>
   </head>
   <body class="bg-coffee-100">
-    <Header bgImage={bgImage} />
-    <slot />
+    <Header bgImage={bgImage} subTitle={subTitle} />
+    <main class="bg-white">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
